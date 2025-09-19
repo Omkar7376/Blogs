@@ -20,15 +20,19 @@ function App() {
         dispatch(logout());
       }
     })
+    .catch((err) => {
+      console.error("Appwrite getCurrentUser error:", err);
+      dispatch(logout()); 
+    })
     .finally(() => setLoading(false)); 
   }, []);
 
-  return !loding ? (
+  return loding ? (
     <div className="min-h-screen flex flex-wrap content-between bg-gray-400 ">
       <div className='w-full block'>
         <Header />
         <main>
-          Todo: <Outlet />
+          <Outlet />
         </main>
         <Footer />
       </div>

@@ -22,7 +22,7 @@ function Signup() {
                 await authService.getCurrentUser()
                 if(userData) dispatch(login(userData))
                     navigate('/')
-            }
+            } 
         } catch(e) {
             setError(e.message)
         }
